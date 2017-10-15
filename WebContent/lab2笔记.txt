@@ -1,0 +1,33 @@
+1，创建新项目，引入struts
+	（1）创建web项目： 文件  -> 新建文件  -> 动态web项目  -> 项目名
+	（2）创建jsp项目：在项目上点击右键  -> 新建  -> jsp file
+	（3）配置tomcat服务器：窗口  -> 首选项  -> 服务器  -> 运行时环境  -> 添加  -> tomcat9.0并选择tomcat文件位置
+	（4）构建路径：项目上点击右键  -> 构建路径  -> Java构建路径  -> 库  -> add labiray  -> 运行时环境  -> tomcat9.0
+
+2.mysql数据库的配置	
+	(1)推荐方法：直接将jdbc.jar文件复制到WEB-INF/lib目录下
+	（2)构建路径（此方法可能会报错推荐第一种方法）：项目上点击右键  -> 构建路径  -> Java构建路径  -> 库  ->降入外部jar,选择文件路径
+
+
+3，加入struts2,配置xml文件
+	（1）加入jar包：进入struts-2.3.34-all\struts-2.3.34\apps\struts2-blank\WEB-INF\lib
+	（2）编写struts2的配置文件（配置action类的访问路径）：在进入struts-2.3.34-all\struts-2.3.34\apps\struts2-blank\WEB-INF\classes.struts.xml 
+		拷贝其中struts.xml文件到项目src下面（名称，位置时固定的），
+		(或者在src下面新建--其他--xml文件struts.xml，把案例中的struts中的dtd案例复制过去（其他内容不要）
+		
+	（3）配置web.xml文件（过滤器）（在web.xml中加入struts2的其中配置）：struts-2.3.34-all\struts-2.3.34\apps\struts2-blank\WEB-INF\web.xml复制其中的filter部分
+
+
+	
+4，新建action
+	（1）新建包，如com.tz.action;  在该包下新建类如：LoginAction;打开该类，struts-2.3.34-all\struts-2.3.34\apps\struts2-blank\WEB-INF\src\java\example\login.java复制其中的代码
+	（3）在该包下面新建一个类
+	(4)可以直接让该类集成actionsupport类，在实现他的默认方法
+	（2）将action配置到src下的struts.xml中
+
+
+
+
+
+疑问：
+	（1）request.getAttribute();  session.setAttribute(); 	request.setAttribute()三者的区别，包括作用范围，		用法等。

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+		    
+		  <include file="struts-default.xml"/>
+        <package name="book" extends="struts-default" >
+        
+        	<!-- 根据作者姓名查询所有图书的目录 -->
+        	<action  name="search" class="com.book.action.SearchAction">
+	        	<result  name="success" type="redirect">/search.jsp</result>
+	        	<result name="error"  type="redirect">/index.jsp</result>
+        	</action>
+        	
+        	
+        	<!-- 删除书的信息 -->
+        	<action  name="deletebook" class="com.book.action.DeleteAction">
+	        	<result  name="success" >/search.jsp</result>
+	        	<result name="error" >/index.jsp</result>
+        	</action>
+        	
+      
+            <!-- 添加书之前查询作者是否存在 -->
+      		<action  name="addbook_search" class="com.book.action.AddAction" method="search">
+	        	<result  name="success" type="redirect">/addbook.jsp</result>
+	        	<result name="error" >/index.jsp</result>
+        	</action>
+        	
+        	
+        	<!-- 若作者不在，添加作者和书 -->
+        	<action  name="add_author_book" class="com.book.action.AddAction" >
+	        	<result  name="success" type="redirect">/addbook.jsp</result>
+	        	<result name="error" >/index.jsp</result>
+        	</action>
+        	
+        	<!-- 若作者在，只需添加书 -->
+        	<action  name="addbook" class="com.book.action.AddAction" method="addbook">
+	        	<result  name="success" type="redirect">/index.jsp</result>
+	        	<result name="error" >/index.jsp</result>
+        	</action>
+        	
+        	
+        	<!-- 修改书的内容 -->
+        	<action  name="changebook" class="com.book.action.Change_Action" >
+	        	<result  name="success" type="redirect">/index.jsp</result>
+	        	
+	        	
+        	</action>
+        	
+        </package>
+
+</struts>
